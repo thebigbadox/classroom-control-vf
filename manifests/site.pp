@@ -48,10 +48,11 @@ node default {
    # owner => 'root',
     #group => 'root',
     #content => 'Learning to deploy things in Puppet'
-    exec { 'motd cowsay' :
-      path => '/usr/local/bin',
-      command => "cowsay 'Welcome to ${::fqdn}!' > /etc/motd",
-      creates => '/etc/motd',
-        
-    }
+    #exec { 'motd cowsay' :
+    #  path => '/usr/local/bin',
+    #  command => "cowsay 'Welcome to ${::fqdn}!' > /etc/motd",
+    #  creates => '/etc/motd',        
+    #}
+    
+    include users
 }
