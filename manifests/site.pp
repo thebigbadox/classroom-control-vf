@@ -50,7 +50,7 @@ node default {
     #content => 'Learning to deploy things in Puppet'
     exec { 'motd cowsay' :
       path => '/usr/local/bin',
-      command => "cowsay 'Welcome to ${::fqdn}!' > /etc/motd"
+      command => "cowsay 'Welcome to ${::fqdn}!' > /etc/motd",
       creates => '/etc/motd'
       }
 
