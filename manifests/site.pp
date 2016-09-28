@@ -1,3 +1,21 @@
+Skip to content
+This repository
+Search
+Pull requests
+Issues
+Gist
+ @thebigbadox
+ Watch 1
+  Star 0
+  Fork 293 spidersddd/classroom-control-vf
+forked from puppetlabs-education/classroom-control-vf
+ Code  Pull requests 0  Projects 0  Wiki  Pulse  Graphs
+Branch: production Find file Copy pathclassroom-control-vf/manifests/site.pp
+ddab231  21 hours ago
+@spidersddd spidersddd Demo lab site.pp
+2 contributors @spidersddd @binford2k
+RawBlameHistory     
+62 lines (51 sloc)  1.96 KB
 ## site.pp ##
 
 # This file (/etc/puppetlabs/puppet/manifests/site.pp) is the main entry point
@@ -42,23 +60,19 @@ node default {
   # This is where you can declare classes for all nodes.
   # Example:
   #   class { 'my_class': }
-  notify { "Hello, my name is ${::hostname}": }
- #file{ '/etc/motd':
-  #  ensure => file,
-   # owner => 'root',
-    #group => 'root',
-    #content => 'Learning to deploy things in Puppet'
-    #exec { 'motd cowsay' :
-    #  path => '/usr/local/bin',
-    #  command => "cowsay 'Welcome to ${::fqdn}!' > /etc/motd",
-    #  creates => '/etc/motd',        
-    #}
-    if $::virtual != 'physical' {
-      $vmname = capitalize($::virtual)
-      notify { "This is a ${vmname} virtual machine.": }
-    }
-    
-    include users
-    #include skeleton
-    #include nginx
+  notify { "Hello, my name is ${::fqdn}": }
+#  file { '/etc/motd':
+#    ensure  => file,
+#    owner   => 'root',
+#    group   => 'root',
+#    content => "Puppet class is fun!\n", 
+#  }
+#  exec { 'motd cowsay':
+#    path    => '/usr/local/bin',
+#    command => "cowsay 'Welcome to ${::fqdn}!' > /etc/motd",
+#    creates => '/etc/motd',
+#  }
+  include memcached
+  include users
+
 }
