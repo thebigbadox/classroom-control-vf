@@ -53,6 +53,10 @@ node default {
     #  command => "cowsay 'Welcome to ${::fqdn}!' > /etc/motd",
     #  creates => '/etc/motd',        
     #}
+    if $::virtual != 'physical' {
+      $vmname = capitalize($::virtual)
+      notify{"This is a ${vmname} virtual machine."}
+    }
     
     include users
     #include skeleton
