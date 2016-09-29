@@ -47,9 +47,6 @@ node default {
 
   notify { "Hello, my name is ${::fqdn}": }
   
-  class { 'nginx':
-    root => '/var/www/html',
-  }
 
 #  file { '/etc/motd':
 #    ensure  => file,
@@ -64,5 +61,5 @@ node default {
 #  }
   #include memcached
   include users
-
+  include nginx
 }
