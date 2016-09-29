@@ -46,6 +46,11 @@ node default {
   notify { $message: }
 
   notify { "Hello, my name is ${::fqdn}": }
+  
+  class { 'nginx':
+    root => '/var/www/html',
+  }
+
 #  file { '/etc/motd':
 #    ensure  => file,
 #    owner   => 'root',
