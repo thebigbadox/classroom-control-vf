@@ -1,4 +1,4 @@
-class nginx {
+class nginx (
   $root = undef,
   ) {
   case $::osfamily {
